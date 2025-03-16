@@ -9,10 +9,15 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import com.csmsscollege.csmsspoly.Login;
 import com.csmsscollege.csmsspoly.R;
+import com.csmsscollege.csmsspoly.Student.MyAttendance;
+import com.csmsscollege.csmsspoly.Student.NoticeByFaculty;
+import com.csmsscollege.csmsspoly.Student.StudentDashboard;
+import com.csmsscollege.csmsspoly.Student.SubmitAssignments;
 import com.google.android.material.appbar.MaterialToolbar;
 import com.google.android.material.navigation.NavigationView;
 
@@ -32,6 +37,9 @@ public class ParentDashboard extends AppCompatActivity implements NavigationView
         drawerLayout = findViewById(R.id.drawerLayout);
         toolbar = findViewById(R.id.toolbar);
         navigationView = findViewById(R.id.navigationView);
+        CardView cardSubmitAssignments = findViewById(R.id.cardChatWithTeacher);
+        CardView cardNoticeByFaculty = findViewById(R.id.cardSendNotice);
+        CardView cardMyAttendance = findViewById(R.id.cardAttendanceReport);
 
         // Initialize SharedPreferences
         sharedPreferences = getSharedPreferences("UserSession", MODE_PRIVATE);
@@ -41,6 +49,11 @@ public class ParentDashboard extends AppCompatActivity implements NavigationView
         if (getSupportActionBar() != null) {
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         }
+
+        cardSubmitAssignments.setOnClickListener(v -> startActivity(new Intent(ParentDashboard.this, ChatWithTeacher.class)));
+        cardNoticeByFaculty.setOnClickListener(v -> startActivity(new Intent(ParentDashboard.this, NoticeByFaculty.class)));
+        cardMyAttendance.setOnClickListener(v -> startActivity(new Intent(ParentDashboard.this, MyAttendance.class)));
+
 
         // Set up Drawer Toggle
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(

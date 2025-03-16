@@ -168,10 +168,7 @@ public class AssignmentActivity extends AppCompatActivity {
                         }
                     }
                 }
-                recyclerView.setAdapter(new AssignmentAdapter(AssignmentActivity.this, assignmentList, assignment -> {
-                    // Handle button click
-                    return null;
-                }));
+                recyclerView.setAdapter(new AssignmentAdapter(AssignmentActivity.this, assignmentList));
                 progressDialog.dismiss();
             }
 

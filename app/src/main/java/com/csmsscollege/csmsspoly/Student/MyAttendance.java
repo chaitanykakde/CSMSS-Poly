@@ -52,7 +52,7 @@ public class MyAttendance extends AppCompatActivity {
 
         // Get student email from SharedPreferences
         SharedPreferences sharedPreferences = getSharedPreferences("UserSession", MODE_PRIVATE);
-        studentEmail = sharedPreferences.getString("email", "");
+        studentEmail = sharedPreferences.getString("studentEmail", "");
 
         if (studentEmail != null && !studentEmail.isEmpty()) {
             fetchStudentDetails();

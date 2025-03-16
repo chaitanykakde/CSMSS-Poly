@@ -4,9 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".Student.SubmitAssignments">
+    android:layout_height="match_parent"
+    tools:context=".Teacher.StudentAssignmentSubmissions">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
@@ -14,14 +14,14 @@
         android:layout_height="wrap_content"
         android:background="@color/primary_blue"
         android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
-        app:title="Submit Assignments"
+        app:title="Upload Assignments"
         app:navigationIcon="@drawable/ic_back_arrow" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerViewAssignments"
+        android:id="@+id/recyclerViewSubmissions"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:padding="10dp"
-        tools:listitem="@layout/item_assignment1" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
 
 </LinearLayout>

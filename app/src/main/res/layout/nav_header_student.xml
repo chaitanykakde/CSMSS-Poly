@@ -7,15 +7,6 @@
     android:background="@color/primary_blue"
     android:gravity="center_vertical">
 
-    <!-- User Profile Image -->
-    <ImageView
-        android:id="@+id/profileImage"
-        android:layout_width="72dp"
-        android:layout_height="72dp"
-        android:src="@drawable/ic_user"
-        android:scaleType="centerCrop"
-        android:layout_gravity="center"
-        android:padding="4dp"/>
 
     <!-- User Email -->
     <TextView

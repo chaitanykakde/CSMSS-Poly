@@ -18,6 +18,21 @@
         android:theme="@style/Theme.CSMSSPoly"
         tools:targetApi="31">
         <activity
+            android:name=".Teacher.StudentAssignmentSubmissions"
+            android:exported="false" />
+        <activity
+            android:name=".Teacher.ListOfParents"
+            android:exported="false" />
+        <activity
+            android:name=".Teacher.ParentChats"
+            android:exported="false" />
+        <activity
+            android:name=".Parent.MyChildAttendance"
+            android:exported="false" />
+        <activity
+            android:name=".Parent.ChatWithTeacher"
+            android:exported="false" />
+        <activity
             android:name=".Student.MyAttendance"
             android:exported="false" />
         <activity

@@ -41,6 +41,7 @@ public class TeacherDashboard extends AppCompatActivity implements NavigationVie
         CardView cardAssignment = findViewById(R.id.cardUploadAssignments);
         CardView cardNotice = findViewById(R.id.cardSendNotice);
         CardView cardReport = findViewById(R.id.cardAttendanceReport);
+        CardView cardChat = findViewById(R.id.cardChat);
 
         // Set Click Listeners
         cardAttendance.setOnClickListener(new View.OnClickListener() {
@@ -68,6 +69,12 @@ public class TeacherDashboard extends AppCompatActivity implements NavigationVie
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(TeacherDashboard.this, ReportActivity.class));
+            }
+        });
+        cardChat.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(TeacherDashboard.this, ParentChats.class));
             }
         });
 

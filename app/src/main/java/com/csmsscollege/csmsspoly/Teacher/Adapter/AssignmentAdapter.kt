@@ -1,9 +1,11 @@
 package com.csmsscollege.csmsspoly.Teacher.Adapter
 
 import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.csmsscollege.csmsspoly.Teacher.StudentAssignmentSubmissions
 import com.csmsscollege.csmsspoly.databinding.ItemAssignmentBinding
 
 // Data Model for Assignment
@@ -12,18 +14,12 @@ data class Assignment(
     val department: String = "",
     val description: String = "",
     val pdfUrl: String = ""
-) {
-    // No-argument constructor required by Firebase
-    constructor() : this("", "", "", "")
-}
-
-
+)
 
 // Adapter Class
 class AssignmentAdapter(
     private val context: Context,
-    private val assignmentList: MutableList<Assignment>,
-    private val onViewSubmissions: (Assignment) -> Unit // Click listener for View Submissions button
+    private val assignmentList: MutableList<Assignment>
 ) : RecyclerView.Adapter<AssignmentAdapter.AssignmentViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): AssignmentViewHolder {
@@ -48,9 +44,15 @@ class AssignmentAdapter(
             binding.tvDepartment.text = "Department: ${assignment.department}"
             binding.tvDescription.text = assignment.description
 
-            // View Submissions Button
+            // View Submissions Button Click
             binding.btnViewSubmissions.setOnClickListener {
-                onViewSubmissions(assignment)
+                val intent = Intent(context, StudentAssignmentSubmissions::class.java).apply {
+                    putExtra("year", assignment.year)
+                    putExtra("department", assignment.department)
+                    putExtra("description", assignment.description)
+                    putExtra("pdfUrl", assignment.pdfUrl)
+                }
+                context.startActivity(intent)
             }
         }
     }

@@ -89,14 +89,21 @@ public class Login extends AppCompatActivity {
 
                 boolean isValidUser = false;
                 String userTypeDetected = "";
+                String studentEmail = "", enrollmentNumber = "", studentYear = "", studentBranch = "";
 
                 while ((line = reader.readLine()) != null) {
                     String[] data = line.split(",");
-                    if (data.length >= 9) {
-                        String studentEmail = data[1];
-                        String studentPassword = data[6];
-                        String parentEmail = data[8];
-                        String parentPassword = data[9];
+                    if (data.length >= 10) { // Ensure there are enough columns
+
+                        // Extract student details from CSV
+                        studentEmail = data[1];  // Student Email
+                        String studentPassword = data[6]; // Student Password
+                        enrollmentNumber = data[2]; // Enrollment Number
+                        studentYear = data[3]; // Student Year (FY, SY, TY, etc.)
+                        studentBranch = data[4]; // Student Branch (CSE, IT, etc.)
+
+                        String parentEmail = data[8];  // Parent Email
+                        String parentPassword = data[9]; // Parent Password
 
                         if (selectedUserType.equals("Student") && email.equals(studentEmail) && password.equals(studentPassword)) {
                             isValidUser = true;
@@ -113,13 +120,14 @@ public class Login extends AppCompatActivity {
                 progressDialog.dismiss();
 
                 if (isValidUser) {
-                    saveUserSession(email, userTypeDetected);
-                    Intent intent;
-                    if (userTypeDetected.equals("Student")) {
-                        intent = new Intent(Login.this, StudentDashboard.class);
-                    } else {
-                        intent = new Intent(Login.this, ParentDashboard.class);
-                    }
+                    // Store student details in SharedPreferences
+                    saveUserSession(email, userTypeDetected, enrollmentNumber, studentYear, studentBranch, studentEmail);
+
+                    // Redirect to respective dashboards
+                    Intent intent = userTypeDetected.equals("Student") ?
+                            new Intent(Login.this, StudentDashboard.class) :
+                            new Intent(Login.this, ParentDashboard.class);
+
                     startActivity(intent);
                     finish();
                 } else {
@@ -137,6 +145,8 @@ public class Login extends AppCompatActivity {
         });
     }
 
+
+
     private void loginUser() {
         String email = emailInput.getText().toString().trim();
         String password = passwordInput.getText().toString().trim();
@@ -153,7 +163,7 @@ public class Login extends AppCompatActivity {
 
         if (selectedUserType.equals("Teacher")) {
             if (email.equals("teacher@csmss.edu") && password.equals("123456")) {
-                saveUserSession(email, "Teacher");
+                saveUserSession(email, "Teacher","d","d","d","df");
                 startActivity(new Intent(this, TeacherDashboard.class));
                 finish();
             } else {
@@ -164,11 +174,18 @@ public class Login extends AppCompatActivity {
         }
     }
 
-    private void saveUserSession(String email, String role) {
+    private void saveUserSession(String email, String role, String enrollmentNumber, String studentYear, String studentBranch, String studentEmail) {
         SharedPreferences sharedPreferences = getSharedPreferences("UserSession", MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
-        editor.putString("email", email);
-        editor.putString("role", role);
+
+        editor.putString("email", email);  // Logged-in User Email (Student or Parent)
+        editor.putString("role", role);  // "Student" or "Parent"
+        editor.putString("studentEnrollment", enrollmentNumber);
+        editor.putString("studentYear", studentYear);
+        editor.putString("studentBranch", studentBranch);
+        editor.putString("studentEmail", studentEmail);
+
         editor.apply();
     }
+
 }
