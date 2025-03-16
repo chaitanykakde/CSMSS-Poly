@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:padding="8dp"
+    android:background="@color/white"
+    android:gravity="center_vertical">
+
+    <!-- Student Name -->
+    <TextView
+        android:id="@+id/tvStudentName"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="2"
+        android:text="Rahul Deshmukh"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:textColor="@color/black" />
+
+    <!-- Enrollment Number -->
+    <TextView
+        android:id="@+id/tvEnrollmentNumber"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="2"
+        android:text="2511620037"
+        android:textSize="14sp"
+        android:textColor="@color/black" />
+
+    <!-- Total Lectures Covered -->
+    <TextView
+        android:id="@+id/tvTotalLectures"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="20"
+        android:textSize="14sp"
+        android:textColor="@color/black" />
+
+    <!-- Total Times Present -->
+    <TextView
+        android:id="@+id/tvTotalPresent"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="18"
+        android:textSize="14sp"
+        android:textColor="@color/black" />
+
+    <!-- Attendance Percentage -->
+    <TextView
+        android:id="@+id/tvAttendancePercentage"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="90%"
+        android:textSize="14sp"
+        android:textColor="#4CAF50"
+        android:textStyle="bold" />
+
+</LinearLayout>

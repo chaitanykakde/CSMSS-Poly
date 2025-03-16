@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    tools:context=".Teacher.AttendanceActivity">
+
+    <!-- Toolbar with Back Button -->
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/primary_blue"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        app:title="Mark Students Attendance"
+        app:navigationIcon="@drawable/ic_back_arrow" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="10dp">
+
+            <!-- Year Selection Spinner -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Select Year"
+                android:textStyle="bold"
+                android:layout_marginTop="10dp" />
+
+            <Spinner
+                android:id="@+id/yearSpinner"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp" />
+
+            <!-- Department Selection Spinner -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Select Department"
+                android:textStyle="bold" />
+
+            <Spinner
+                android:id="@+id/departmentSpinner"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp" />
+
+            <!-- Mark Attendance Button -->
+            <Button
+                android:id="@+id/btnMarkAttendance"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Find Students"
+                android:backgroundTint="@color/primary_blue"
+                android:textColor="@android:color/white"
+                android:padding="10dp" />
+
+            <!-- RecyclerView for Student List -->
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerViewStudents"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                android:paddingTop="10dp" />
+
+            <!-- Submit Attendance Button -->
+            <Button
+                android:id="@+id/btnSubmitAttendance"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Submit Attendance"
+                android:visibility="gone"
+                android:backgroundTint="@color/secondary_maroon"
+                android:textColor="@android:color/white"
+                android:padding="10dp"
+                android:layout_marginTop="10dp" />
+
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

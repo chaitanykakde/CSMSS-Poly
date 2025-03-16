@@ -1,3 +1,13 @@
 <resources>
     <string name="app_name">CSMSS Poly</string>
+    <string name="open_drawer">d</string>
+    <string name="close_drawer">d</string>
+    <string name="select_year">Select Year</string>
+    <string name="select_department">Select Department\n</string>
+
+    <string-array name="user_types">
+        <item>Teacher</item>
+        <item>Student</item>
+        <item>Parent</item>
+    </string-array>
 </resources>

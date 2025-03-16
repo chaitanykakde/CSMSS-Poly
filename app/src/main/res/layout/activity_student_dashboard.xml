@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/drawerLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Student.StudentDashboard">
+
+    <!-- Main Content Layout -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <!-- Modern Toolbar -->
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/primary_blue"
+            android:theme="@style/ThemeOverlay.MaterialComponents.ActionBar"
+            app:title="Student Dashboard"
+            app:titleTextColor="@android:color/white"
+            app:navigationIcon="@drawable/ic_menu" />
+
+        <!-- Your main content here -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:background="@android:color/white">
+
+
+
+            <!-- Dashboard Content -->
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="16dp">
+
+                <androidx.gridlayout.widget.GridLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:columnCount="2"
+                    android:padding="8dp">
+
+                    <!-- Mark Attendance Card -->
+                    <com.google.android.material.card.MaterialCardView
+                        android:id="@+id/cardMarkAttendance"
+                        android:layout_width="0dp"
+                        android:layout_height="150dp"
+                        android:layout_margin="8dp"
+                        app:cardElevation="6dp"
+                        app:cardCornerRadius="16dp"
+                        app:layout_columnWeight="1">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:padding="16dp"
+                            android:orientation="vertical"
+                            android:gravity="center">
+
+                            <ImageView
+                                android:layout_width="64dp"
+                                android:layout_height="64dp"
+                                android:src="@drawable/attendance"
+                                android:scaleType="centerInside" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="Your Profile"
+                                android:textSize="16sp"
+                                android:textStyle="bold"
+                                android:gravity="center"
+                                android:maxLines="2"
+                                android:ellipsize="end"
+                                android:paddingTop="8dp"
+                                android:paddingHorizontal="16dp"/>
+                        </LinearLayout>
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <!-- Upload Assignments Card -->
+                    <com.google.android.material.card.MaterialCardView
+                        android:id="@+id/cardUploadAssignments"
+                        android:layout_width="0dp"
+                        android:layout_height="150dp"
+                        android:layout_margin="8dp"
+                        app:cardElevation="6dp"
+                        app:cardCornerRadius="16dp"
+                        app:layout_columnWeight="1">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:padding="16dp"
+                            android:orientation="vertical"
+                            android:gravity="center">
+
+                            <ImageView
+                                android:layout_width="64dp"
+                                android:layout_height="64dp"
+                                android:src="@drawable/assignment"
+                                android:scaleType="centerInside" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="Submit Assignments"
+                                android:textSize="16sp"
+                                android:textStyle="bold"
+                                android:gravity="center"
+                                android:maxLines="2"
+                                android:ellipsize="end"
+                                android:paddingTop="8dp"
+                                android:paddingHorizontal="16dp"/>
+                        </LinearLayout>
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <!-- Send Notice Card -->
+                    <com.google.android.material.card.MaterialCardView
+                        android:id="@+id/cardSendNotice"
+                        android:layout_width="0dp"
+                        android:layout_height="150dp"
+                        android:layout_margin="8dp"
+                        app:cardElevation="6dp"
+                        app:cardCornerRadius="16dp"
+                        app:layout_columnWeight="1">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:padding="16dp"
+                            android:orientation="vertical"
+                            android:gravity="center">
+
+                            <ImageView
+                                android:layout_width="64dp"
+                                android:layout_height="64dp"
+                                android:src="@drawable/notice"
+                                android:scaleType="centerInside" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="Notice By Faculty"
+                                android:textSize="16sp"
+                                android:textStyle="bold"
+                                android:gravity="center"
+                                android:maxLines="2"
+                                android:ellipsize="end"
+                                android:paddingTop="8dp"
+                                android:paddingHorizontal="16dp"/>
+                        </LinearLayout>
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <!-- Attendance Report Card -->
+                    <com.google.android.material.card.MaterialCardView
+                        android:id="@+id/cardAttendanceReport"
+                        android:layout_width="0dp"
+                        android:layout_height="150dp"
+                        android:layout_margin="8dp"
+                        app:cardElevation="6dp"
+                        app:cardCornerRadius="16dp"
+                        app:layout_columnWeight="1">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:padding="16dp"
+                            android:orientation="vertical"
+                            android:gravity="center">
+
+                            <ImageView
+                                android:layout_width="64dp"
+                                android:layout_height="64dp"
+                                android:src="@drawable/report"
+                                android:scaleType="centerInside" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="Your Attendance"
+                                android:textSize="16sp"
+                                android:textStyle="bold"
+                                android:gravity="center"
+                                android:maxLines="2"
+                                android:ellipsize="end"
+                                android:paddingTop="8dp"
+                                android:paddingHorizontal="16dp"/>
+                        </LinearLayout>
+                    </com.google.android.material.card.MaterialCardView>
+
+                </androidx.gridlayout.widget.GridLayout>
+            </ScrollView>
+        </LinearLayout>
+    </LinearLayout>
+
+    <!-- Navigation Drawer -->
+    <com.google.android.material.navigation.NavigationView
+        android:id="@+id/navigationView"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:background="@android:color/white"
+        android:layout_gravity="start"
+        app:menu="@menu/menu_student_drawer"
+        app:headerLayout="@layout/nav_header_student"
+        app:itemIconTint="@color/primary_blue"
+        app:itemTextColor="@color/primary_blue"/>
+</androidx.drawerlayout.widget.DrawerLayout>

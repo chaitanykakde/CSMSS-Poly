@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    tools:context=".Teacher.NoticeActivity">
+
+    <!-- Toolbar -->
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/primary_blue"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        app:title="Send Notice"
+        app:navigationIcon="@drawable/ic_back_arrow" />
+
+    <!-- ScrollView to ensure smooth scrolling -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!-- Notice Input Field -->
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Enter Notice">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etNotice"
+                    android:layout_width="match_parent"
+                    android:layout_height="70dp"
+                    android:maxLines="3"
+                    android:inputType="textMultiLine" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <!-- Send Button -->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnSendNotice"
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Send Notice"
+                android:icon="@drawable/ic_send"
+                android:backgroundTint="@color/primary_blue"
+                android:layout_marginTop="12dp"
+                app:iconGravity="textStart"
+                app:iconPadding="8dp" />
+
+            <!-- Divider -->
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/gold_accent"
+                android:layout_marginVertical="12dp" />
+
+
+
+            <!-- RecyclerView to display notices -->
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvNotices"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:nestedScrollingEnabled="false"
+                android:paddingBottom="12dp"/>
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>
